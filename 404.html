@@ -12,11 +12,14 @@
   (function () {
     var h = location.hash || '', q = location.search || '';
     if (/(^|[#&?])(access_token|error|error_code|type|token_hash|code)=/.test(h + q)) {
-      location.replace('/hux-website/account/' + q + h);
+      location.replace('https://myhux.in/account/' + q + h);
       return;
     }
     // the bare root: go to the HUX website
-    if (location.pathname === '/' || location.pathname === '/index.html') location.replace('/hux-website/');
+    // an old website link (kirath25.github.io/hux-website/...): the same page on myhux.in
+    var m = /^\/hux-website(\/.*)?$/.exec(location.pathname);
+    if (m) { location.replace('https://myhux.in' + (m[1] || '/') + q + h); return; }
+    if (location.pathname === '/' || location.pathname === '/index.html') location.replace('https://myhux.in/');
   })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,7 +49,7 @@
 </head>
 <body>
   <main class="card">
-    <a class="brand" href="/hux-website/" aria-label="HUX home">
+    <a class="brand" href="https://myhux.in/" aria-label="HUX home">
       <svg width="28" height="28" viewBox="0 0 1024 1024" fill="none" aria-hidden="true">
         <polygon points="512,182 797.8,347 797.8,677 512,842 226.2,677 226.2,347" stroke="#F4D35E" stroke-width="46" stroke-linejoin="round"/>
         <path d="M 452 650 L 452 480 Q 452 440 492 440 L 736 440 M 676 380 L 740 440 L 676 500" stroke="#F4D35E" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
@@ -58,10 +61,10 @@
     <h1>This page does not exist</h1>
     <p>The link may be old or mistyped. If you came here from a HUX e-mail, your account is safe: open HUX and sign in.</p>
     <div class="actions">
-      <a class="btn btn-primary" href="/hux-website/">Go to the HUX website</a>
-      <a class="btn btn-quiet" href="/hux-website/download/">Get the app</a>
+      <a class="btn btn-primary" href="https://myhux.in/">Go to the HUX website</a>
+      <a class="btn btn-quiet" href="https://myhux.in/download/">Get the app</a>
     </div>
   </main>
-  <div class="foot">HUX is only for GLA University students · <a href="/hux-website/help/">Help</a></div>
+  <div class="foot">HUX is only for GLA University students · <a href="https://myhux.in/help/">Help</a></div>
 </body>
 </html>
