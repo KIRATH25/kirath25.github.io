@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#171717">
+<title>HUX: page not found</title>
+<script>
+  // An account e-mail link that landed here (Supabase puts #access_token=… or #error=… after the address):
+  // finish it on the website's account page instead, keeping the result.
+  (function () {
+    var h = location.hash || '', q = location.search || '';
+    if (/(^|[#&?])(access_token|error|error_code|type|token_hash|code)=/.test(h + q)) {
+      location.replace('/hux-website/account/' + q + h);
+      return;
+    }
+    // the bare root: go to the HUX website
+    if (location.pathname === '/' || location.pathname === '/index.html') location.replace('/hux-website/');
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root { --ivory: #f7f5ef; --paper: #fffdf7; --line: #ded9cc; --ink: #171717; --ink-2: #333333; --muted: #6f6c65; --sun: #f4d35e; --sun-ink: #806b00; }
+  @media (prefers-color-scheme: dark) { :root { --ivory: #121212; --paper: #1e1e1e; --line: #2e2e2c; --ink: #f4f1e8; --ink-2: #d8d4ca; --muted: #a3a099; --sun-ink: #e2c257; } }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body { background: var(--ivory); color: var(--ink-2); font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100dvh;
+    padding: max(24px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); }
+  .card { width: 100%; max-width: 520px; background: var(--paper); border: 1px solid var(--line); border-radius: 28px; padding: 40px 32px; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 600; font-size: 17px; text-decoration: none; }
+  .code { margin-top: 28px; font-size: 14px; font-weight: 500; color: var(--sun-ink); font-variant-numeric: tabular-nums; }
+  h1 { font-family: "Instrument Serif", ui-serif, Georgia, serif; font-weight: 400; font-size: clamp(34px, 8vw, 44px); line-height: 1.05; color: var(--ink); margin: 8px 0 0; text-wrap: balance; }
+  p { margin: 14px 0 0; max-width: 42ch; }
+  .actions { display: grid; gap: 10px; margin-top: 28px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; height: 52px; border-radius: 12px; font-weight: 600; font-size: 16px; text-decoration: none; }
+  .btn-primary { background: var(--sun); color: #171717; }
+  .btn-quiet { border: 1px solid var(--line); color: var(--ink); }
+  .btn:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+  .foot { margin-top: 24px; font-size: 13px; color: var(--muted); text-align: center; }
+  .foot a { color: var(--muted); }
+</style>
+</head>
+<body>
+  <main class="card">
+    <a class="brand" href="/hux-website/" aria-label="HUX home">
+      <svg width="28" height="28" viewBox="0 0 1024 1024" fill="none" aria-hidden="true">
+        <polygon points="512,182 797.8,347 797.8,677 512,842 226.2,677 226.2,347" stroke="#F4D35E" stroke-width="46" stroke-linejoin="round"/>
+        <path d="M 452 650 L 452 480 Q 452 440 492 440 L 736 440 M 676 380 L 740 440 L 676 500" stroke="#F4D35E" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 572 374 L 572 544 Q 572 584 532 584 L 288 584 M 348 524 L 284 584 L 348 644" stroke="#F4D35E" stroke-width="42" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      HUX
+    </a>
+    <div class="code">Error 404</div>
+    <h1>This page does not exist</h1>
+    <p>The link may be old or mistyped. If you came here from a HUX e-mail, your account is safe: open HUX and sign in.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="/hux-website/">Go to the HUX website</a>
+      <a class="btn btn-quiet" href="/hux-website/download/">Get the app</a>
+    </div>
+  </main>
+  <div class="foot">HUX is only for GLA University students · <a href="/hux-website/help/">Help</a></div>
+</body>
+</html>
